@@ -38,7 +38,7 @@ public class ThreadInterruptEx extends JFrame {
 		timerLabel.setFont(new Font("Times New Roman", Font.ITALIC, 80));
 
 		TimerRunnable runnable = new TimerRunnable(timerLabel);
-		th = new Thread(runnable); // 스레드 생성
+		th = new Thread(runnable); // 스레드 생성, 스레드를 생성할때 인자로 runnable을 받을 수 있다
 		c.add(timerLabel);
 
 		JButton btn = new JButton("kill Timer");

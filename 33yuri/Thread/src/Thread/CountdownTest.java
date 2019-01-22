@@ -14,7 +14,7 @@ public class CountdownTest extends JFrame{
 				}catch(InterruptedException e){
 					e.printStackTrace();
 				}
-				label.setText(i + " ");
+				label.setText(" " +i + " ");		//라벨에 숫자 붙이기 ㅎ
 			}
 		}
 	}
