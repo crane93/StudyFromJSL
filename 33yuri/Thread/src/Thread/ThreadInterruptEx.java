@@ -4,27 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-class TimerRunnable implements Runnable {
-	JLabel timerLabel;
-
-	public TimerRunnable(JLabel timerLabel) {
-		this.timerLabel = timerLabel;
-	}
-
-	public void run() {
-		int n = 0;
-		while (true) {
-			timerLabel.setText(Integer.toString(n));
-			n++;
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				return;
-			} // 예외가 발생하면 스레드 종료
-		}
-	}
-}
-
 public class ThreadInterruptEx extends JFrame {
 	Thread th;
 
@@ -56,6 +35,26 @@ public class ThreadInterruptEx extends JFrame {
 		c.add(btn);
 		setSize(300, 150);
 		setVisible(true);
+	}
+	class TimerRunnable implements Runnable {
+		JLabel timerLabel;
+
+		public TimerRunnable(JLabel timerLabel) {
+			this.timerLabel = timerLabel;
+		}
+
+		public void run() {
+			int n = 0;
+			while (true) {
+				try {
+					Thread.sleep(1000);
+					n++;
+					timerLabel.setText(Integer.toString(n));
+				} catch (InterruptedException e) {
+					return;
+				} // 예외가 발생하면 스레드 종료
+			}
+		}
 	}
 
 	public static void main(String[] args) {

@@ -17,9 +17,10 @@ public class CountUp extends JFrame {
 		boolean bPaused = true;
 		int value;
 		Thread timerThread = null;
+		
 
 		public MyLabel(int value) {
-			super(Integer.toString(value));
+			super(Integer.toString(value));		//super는 그거다 JLabel의 생성자를 호출하는 것
 			this.value = value;
 			this.setFont(new Font("TimesRoman", Font.ITALIC, 50));
 			this.setHorizontalAlignment(JLabel.CENTER);
