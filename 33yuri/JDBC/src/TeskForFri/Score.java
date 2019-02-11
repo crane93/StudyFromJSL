@@ -106,7 +106,7 @@ public class Score {
 				int choose_Koean = 1;
 				int choose_Enghlish = 2;
 				int choose_math = 3;
-				int choose_all = 4;
+				//int choose_all = 4;
 				
 				System.out.println("성적을 수정하고자하는 학생이름을 입력하세요>> ");
 				String student_modify = sc.next();
