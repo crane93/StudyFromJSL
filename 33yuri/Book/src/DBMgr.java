@@ -93,4 +93,113 @@ public class DBMgr {	//db의 데이터를 조작하거나 받아오는 메소드
 		}
 		return list;
 	}
+	
+	public ArrayList<MbBean> deleteMb(String phone){
+		Connection con = null;
+		Statement stmt = null;
+		ArrayList<MbBean> list = new ArrayList<MbBean>();
+		String sql = "delete from member where mb_phone = '" + phone + "'";
+		try {
+			con = conn.getConnection();
+			stmt = con.createStatement();
+			stmt.executeUpdate(sql);
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				stmt.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+	
+	public ArrayList<MbBean> searchMb(String phone){
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		ArrayList<MbBean> list = new ArrayList<MbBean>();
+		String sql = "select * from member where mb_phone = '" + phone + "'";
+		try {
+			con = conn.getConnection();
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				MbBean bean = new MbBean();
+				bean.setMb_name(rs.getString(1));
+				bean.setMb_num(rs.getString(2));
+				bean.setMb_phone(rs.getString(3));
+				bean.setMb_addr(rs.getString(4));
+				list.add(bean);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				rs.close();
+				stmt.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+	
+	public  ArrayList<MbBean> updateMb(String phone){
+		Connection con =null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		ArrayList<MbBean> list = new ArrayList<MbBean>();
+		String sql = "select * from member where mb_phone = '" + phone + "'";
+		try {
+			con = conn.getConnection();
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				MbBean bean = new MbBean(); 
+				bean.setMb_name(rs.getString(1));
+				bean.setMb_num(rs.getString(2));
+				bean.setMb_phone(rs.getString(3));
+				bean.setMb_addr(rs.getString(4));
+				list.add(bean);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				rs.close();
+				stmt.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+	
+	public ArrayList<MbBean> updateMb2(String name, String num, String phone, String addr){
+		Connection con =null;
+		PreparedStatement pstmt = null;
+		ArrayList<MbBean> list = new ArrayList<MbBean>();
+		String sql = "update member set mb_name = ?, mb_num = ?, mb_phone = ?, mb_addr = ?";
+		try {
+			con = conn.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, num);
+			pstmt.setString(3, phone);
+			pstmt.setString(4, addr);
+			pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				con.close();
+				pstmt.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
 }
