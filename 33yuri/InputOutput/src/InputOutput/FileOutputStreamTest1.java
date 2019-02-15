@@ -15,7 +15,7 @@ public class FileOutputStreamTest1 {
 				bs[i] = data;
 				data++;
 			}
-			fos.write(bs,2,10); 	//bs를 인덱스2번째부터 인덱스10번째까지 잘라서 가져오겠다
+			fos.write(bs); 	//bs를 인덱스2번째부터 인덱스10번째까지 잘라서 가져오겠다
 			
 //			for(int i=65; i<=91;i++) {
 //				fos.write(i);
