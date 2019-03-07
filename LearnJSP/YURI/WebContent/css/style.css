@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/*css에서 주석다는 법*/
+/*기본값이라는게 있는데 그걸 변경하고 싶을때 css를 사용한당*/
+
+.tb {border:1px solid #ccc;}	
+.tbw {width:900px;}
+#tbl {border:1px solid #ccc;}					
+.tbb {border-bottom:1px dashed #ccc; padding:10px;}			/*dashed 점선*/		/*바깥여백:margin, 안쪽여백:padding*/
+.inb {border:1px solid #ccc; padding:10px; width:400px;}
+.h200 {height:200px;}
