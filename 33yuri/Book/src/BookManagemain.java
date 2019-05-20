@@ -61,6 +61,9 @@ public class BookManagemain extends BFrame implements ActionListener{
 		if(button.equals(RegisterDel.getText())) {
 			new Insert_mb();
 		}
+		else if(button.equals(Book_RegisterDel.getText())) {
+			new Insert_book();
+		}
 	}
 	public static void main (String[] arg) {
 			new BookManagemain();

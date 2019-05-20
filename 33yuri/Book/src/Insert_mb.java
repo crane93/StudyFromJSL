@@ -30,6 +30,12 @@ public class Insert_mb extends BFrame implements ActionListener{
 		init();
 	}
 	
+	public Insert_mb(ArrayList<MbBean> list) {		//Search_mb에도 쓰이는 명시적인 생성자
+		this.setTitle("회원목록");
+		this.list = list;
+		init();
+	}
+	
 	private void init() {
 		Container con = this.getContentPane();
 		
@@ -69,14 +75,14 @@ public class Insert_mb extends BFrame implements ActionListener{
 		if(e.getActionCommand().equals("등록")) {
 			new Input_mb();
 		}else if(e.getActionCommand().equals("조회")) {
-			//new Search_mb();
+			new Search_mb();
 		}else if(e.getActionCommand().equals("새로고침")) {
 			dispose();		//자기자신을 껐다 다시킨다
 			new Insert_mb();
 		}else if(e.getActionCommand().equals("삭제")) {
-			//new Delete_mb();	
+			new Delete_mb();	
 		}else if(e.getActionCommand().equals("수정")) {
-			//new Update_mb();
+			new Update_mb();
 		}else {
 			dispose();
 		}

@@ -141,10 +141,10 @@ class GamePanel extends JPanel{
         }
     }
 }
+
 public class JavaApplication32 {
 
 	public static void main(String[] args) {
 		 new Ex7();
 	}
-
 }

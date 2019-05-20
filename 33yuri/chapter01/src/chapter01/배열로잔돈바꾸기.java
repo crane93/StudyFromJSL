@@ -30,7 +30,7 @@ public class 배열로잔돈바꾸기 {
 			}
 		}
 		
-
+		System.out.println("ㅇㅇ");
 	}
 
 }
